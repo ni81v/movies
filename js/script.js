@@ -1,17 +1,3 @@
-/* Задания на урок:
-
-1) Удалить все рекламные блоки со страницы (правая часть сайта)
-
-2) Изменить жанр фильма, поменять "комедия" на "драма"
-
-3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
-Реализовать только при помощи JS
-
-4) Список фильмов на странице сформировать на основании данных из этого JS файла.
-Отсортировать их по алфавиту 
-
-5) Добавить нумерацию выведенных фильмов */
-
 'use strict';
 
 const movieDB = {
@@ -25,11 +11,15 @@ const movieDB = {
 };
 
 // let promoAdv = document.querySelector('.promo__adv');
-let promoAdv = document.querySelectorAll('.promo__adv img');
-let promoGenre = document.querySelector('.promo__genre');
-let promoBg = document.querySelector('.promo__bg');
-let promoList = document.querySelector('.promo__interactive-list');
-let promoListItems = document.querySelectorAll('.promo__interactive-list li');
+let promoAdv = document.querySelectorAll('.promo__adv img'),
+    promoGenre = document.querySelector('.promo__genre'),
+    promoBg = document.querySelector('.promo__bg'),
+    promoList = document.querySelector('.promo__interactive-list'),
+    promoListItems = document.querySelectorAll('.promo__interactive-list li'),
+    form = document.querySelector('.add'),
+    enterFilm = form.querySelector('.adding__input'),
+    confirmFilm = form.querySelector('.add button');
+
 
 
 promoAdv.forEach(item => {
@@ -57,4 +47,19 @@ promoList.innerHTML += `
         <div class="delete"></div>
     </li>
 `;
+});
+
+
+confirmFilm.addEventListener('click', function() {
+    //input value
+
+    
+    promoList.innerHTML += `
+    <li class="promo__interactive-item">
+        ${}//input value
+        <div class="delete"></div>
+    </li>
+    `;
+    
+    movieDB.movies.sort();
 });
